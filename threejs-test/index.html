@@ -2,21 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
     <title>Three.js Collada loading </title>
     <script src="three.js"></script>
     <style>
-        canvas {
-            outline: 1px solid black;
+        body {
+            margin: 0;
         }
     </style>
 </head>
 <body>
 <script>
     var D, aspect, camera, height, light, loader, material, renderer, scene, width;
-    width = 960;
-    height = 500;
+    width = window.innerWidth;
+    height = window.innerHeight;
     aspect = width / height;
-    D = 150;
+    D = 100;
 
     scene = new THREE.Scene();
     camera = new THREE.OrthographicCamera(-D * aspect, D * aspect, D, -D, 1, 1000);
@@ -34,11 +36,11 @@
 
     var camx = 0;
     var camy = 0;
-    var camz = 100;
+    var camz = 60;
 
-    light = new THREE.PointLight( 0xffffff, 1, 0 );
+    light = new THREE.PointLight(0xffffff, 1, 0);
     light.position.set(camx, camy, camz);
-    scene.add( light );
+    scene.add(light);
 
     camera.position.set(camx, camy, camz);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
